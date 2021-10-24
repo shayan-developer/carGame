@@ -58,7 +58,6 @@
         margin: auto;
       }
       .controls {
-        display: none;
         position: fixed;
         right: 5%;
         bottom: 5%;
@@ -101,12 +100,28 @@
 
       <div class="controls">
         <div class="control">
-          <i class="fas fa-arrow-up" onmousedown="moveForControls('top')"  onmouseup="clearMove('top')" ></i>
+          <i
+            class="fas fa-arrow-up"
+            ontouchstart="moveForControls('top')"
+            ontouchend="clearMove('top')"
+          ></i>
         </div>
         <div class="control">
-          <i class="fas fa-arrow-left" onmousedown="moveForControls('left')" onmouseup="clearMove('left')"></i>
-          <i class="fas fa-arrow-down" onmousedown="moveForControls('down')"   onmouseup="clearMove('down')"></i>
-          <i class="fas fa-arrow-right" onmousedown="moveForControls('right')"   onmouseup="clearMove('right')"></i>
+          <i
+            class="fas fa-arrow-left"
+            ontouchstart="moveForControls('left')"
+            ontouchend="clearMove('left')"
+          ></i>
+          <i
+            class="fas fa-arrow-down"
+            ontouchstart="moveForControls('down')"
+            ontouchend="clearMove('down')"
+          ></i>
+          <i
+            class="fas fa-arrow-right"
+            ontouchstart="moveForControls('right')"
+            ontouchend="clearMove('right')"
+          ></i>
         </div>
       </div>
     </div>
@@ -118,7 +133,6 @@
 
       startScreen.addEventListener("click", start);
 
-      
       const keys = {
         ArrowUp: false,
         ArrowRight: false,
@@ -129,8 +143,6 @@
         speed: 5,
         score: 0,
       };
-    
-     
 
       document.addEventListener("keydown", pressOn);
       document.addEventListener("keyup", pressOff);
@@ -259,31 +271,40 @@
       }
 
       function moveForControls(place) {
-        console.log("run,",place);
+        console.log("run,", place);
         switch (place) {
-          case "top":keys.ArrowUp=true;
+          case "top":
+            keys.ArrowUp = true;
             break;
-          case "right":keys.ArrowRight=true;
+          case "right":
+            keys.ArrowRight = true;
             break;
-          case "left":keys.ArrowLeft=true;
+          case "left":
+            keys.ArrowLeft = true;
             break;
-          case "down":keys.ArrowDown=true;
+          case "down":
+            keys.ArrowDown = true;
             break;
 
           default:
             break;
         }
       }
-     function clearMove(place) {
-      console.log("leave,",place);
-      switch (place) {
-          case "top":keys.ArrowUp=false;
+      function clearMove(place) {
+        console.log("leave,", place);
+        switch (place) {
+          case "top":
+            keys.ArrowUp = false;
+
             break;
-          case "right":keys.ArrowRight=false;
+          case "right":
+            keys.ArrowRight = false;
             break;
-          case "left":keys.ArrowLeft=false;
+          case "left":
+            keys.ArrowLeft = false;
             break;
-          case "down":keys.ArrowDown=false;
+          case "down":
+            keys.ArrowDown = false;
             break;
 
           default:
